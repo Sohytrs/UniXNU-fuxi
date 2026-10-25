@@ -398,3 +398,46 @@ FUXI_WEAK unsigned long native_ufs_blocks_published;
 FUXI_WEAK unsigned long native_ufs_integrity_failures;
 FUXI_WEAK unsigned long native_ufs_progress_text;
 FUXI_WEAK unsigned long native_ufs_verified_blocks;
+
+/* Startup progress ticker: the bar length is the number of startup callbacks run. */
+#include <pexpert/pexpert.h>
+
+extern vm_offset_t ml_static_ptovirt(vm_offset_t);
+
+#define FUXI_TICK_X      8
+#define FUXI_TICK_Y      8
+#define FUXI_TICK_H      24
+#define FUXI_TICK_MAX    900
+
+void
+fuxi_stage_tick(unsigned index)
+{
+	static unsigned last = ~0u;
+	unsigned long base = (unsigned long)PE_state.video.v_baseAddr;
+	unsigned long row;
+	unsigned long virt;
+	unsigned x, y, w;
+
+	if (index == last || base == 0 || PE_state.video.v_depth != 32) {
+		return;
+	}
+	last = index;
+
+	virt = (unsigned long)ml_static_ptovirt((vm_offset_t)base);
+	if (virt == 0) {
+		virt = base;
+	}
+	row = PE_state.video.v_rowBytes;
+	w = index < FUXI_TICK_MAX ? index : FUXI_TICK_MAX;
+
+	for (y = FUXI_TICK_Y; y < FUXI_TICK_Y + FUXI_TICK_H; y++) {
+		volatile unsigned int *p =
+		    (volatile unsigned int *)(virt + (unsigned long)y * row);
+		for (x = FUXI_TICK_X; x < FUXI_TICK_X + w; x++) {
+			p[x] = 0x0000FF00u;
+		}
+		for (x = FUXI_TICK_X + w; x < FUXI_TICK_X + FUXI_TICK_MAX; x++) {
+			p[x] = 0x00000000u;
+		}
+	}
+}
