@@ -214,9 +214,6 @@ kernel_args = [
 # Without a root device XNU still boots far enough to print its console banner.
 
 entry_probe_reset_delay = 6
-entry_probe_reset_after = "_arm_vm_init"
-entry_probe_reset_in = "_arm_init"
-entry_probe_reset_occurrence = 1
 
 [payload.adt]
 tool = "scripts/make-sheng-adt.py"
