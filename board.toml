@@ -81,7 +81,6 @@ archives = [
 # when their feature is off. Without it the link stops on native_legacy_display_probe,
 # boot_progress_poll, the verified-root chain and mockfs.
   "build-arm-driver.py NativeUfs",
-  "build-fuxi-io-storage.py",
   "build-fuxi-stub.py",
   "build-mockfs-fixture.py",
   "build-libpthread-kernel.py",
