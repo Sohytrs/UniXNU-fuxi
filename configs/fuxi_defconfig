@@ -7,9 +7,7 @@ CONFIG_XNU_BUILD_ARCHIVES=y
 CONFIG_XNU_SOURCE_PTHREAD=y
 CONFIG_XNU_ARM_DT_PLATFORM=y
 CONFIG_XNU_ARMCPU=y
-# Parked while the board boots from the mockfs root: the storage classes collide
-# with the prelinked IOStorageFamily kext.
-CONFIG_XNU_NATIVE_UFS=n
+CONFIG_XNU_NATIVE_UFS=y
 CONFIG_XNU_TRUST_CACHE_RUNTIME=y
 # The fixture does not build with the local Xcode 26.2 toolchain (kfree_type type
 # assertion); the board boots from the UFS root, so the fixture is not needed.
@@ -31,7 +29,7 @@ CONFIG_XNU_NATIVE_AES=n
 CONFIG_XNU_NATIVE_RAM_BLOCK=n
 CONFIG_XNU_CRYPTO_BOOTSTRAP="source"
 CONFIG_XNU_OWNER_DATA_VOLUME_UUID="18AB5557-DC2D-469B-8758-855E60F5B0DF"
-CONFIG_XNU_EXTRA_LD_ARCHIVES="{tree}/build/fuxi-stub/libFuxiBringUpStub.a"
+CONFIG_XNU_EXTRA_LD_ARCHIVES="{tree}/build/fuxi-io-storage/libFuxiIOStorage.a {tree}/build/fuxi-stub/libFuxiBringUpStub.a"
 # Bring-up: no virtio, no owner-trust chain, no boot progress. The archives that produce
 # them are not in board.toml, because they need the storage ABI audit evidence.
 CONFIG_XNU_NATIVE_VIRTIO_BLOCK=n
