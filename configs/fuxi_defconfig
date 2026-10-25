@@ -7,7 +7,7 @@ CONFIG_XNU_BUILD_ARCHIVES=y
 CONFIG_XNU_SOURCE_PTHREAD=y
 CONFIG_XNU_ARM_DT_PLATFORM=y
 CONFIG_XNU_ARMCPU=y
-CONFIG_XNU_NATIVE_UFS=n
+CONFIG_XNU_NATIVE_UFS=y
 CONFIG_XNU_TRUST_CACHE_RUNTIME=y
 # The fixture does not build with the local Xcode 26.2 toolchain (kfree_type type
 # assertion); the board boots from the UFS root, so the fixture is not needed.
