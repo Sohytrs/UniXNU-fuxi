@@ -110,7 +110,9 @@ roots = [
   "com.apple.driver.AppleARMWatchdogTimer",
   "com.apple.driver.AppleAudioClockLibs",
   "com.apple.driver.AppleEffaceableStorage",
-  "com.apple.iokit.IOStorageFamily",
+  # Left out on purpose: the kernel compiles the IOStorageFamily sources itself for
+  # NativeUfs, so prelinking the Apple kext too would register IOBlockStorageDevice twice
+  # and OSMetaClass aborts on the duplicate name.
   "com.apple.driver.AppleIISController",
   "com.apple.driver.AppleM2ScalerCSCDriver",
   "com.apple.driver.AppleMobileFileIntegrity",
