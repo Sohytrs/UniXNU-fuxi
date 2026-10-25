@@ -118,7 +118,8 @@ roots = [
   "com.apple.driver.AppleMobileFileIntegrity",
   "com.apple.driver.ApplePMGR",
   "com.apple.driver.IODARTFamily",
-  "com.apple.filesystems.apfs",
+  # apfs imports IOStorageFamily, which would drag the Apple kext back in and
+  # duplicate the classes the kernel compiles. Keep it out until the storage stage.
   "com.apple.iokit.CoreAnalyticsFamily",
   "com.apple.iokit.IOAVFamily",
   "com.apple.iokit.IOAudio2Family",
