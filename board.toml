@@ -203,8 +203,7 @@ kernel_args = [
   "armcpu-diagnostics=1",
   "armcpu-spi-ipi=1",
   "-no_slto_panic",
-  "ml-timeout-lock-panic-scale=40",
-]
+  "ml-timeout-lock-panic-scale=40", "sheng-build-tag=fx-001", "entry_probe_reset_delay=6", "boot-diag-resume=10"]
 
 # native-ufs-root=1 is left out for the first boot. The payload builder requires a
 # PMGR driver for it ("native UFS root boot needs exactly one sheng-pmgr=2; the
