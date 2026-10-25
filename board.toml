@@ -77,7 +77,6 @@ archives = [
   "build-corecrypto-14.py --namespace",
   "build-arm-driver.py ArmDTPlatform",
   "build-arm-driver.py ArmCpu",
-  "build-arm-driver.py NativeUfs",
 # build-fuxi-stub.py defines, weakly, the native symbols the XNU patches reference even
 # when their feature is off. Without it the link stops on native_legacy_display_probe,
 # boot_progress_poll, the verified-root chain and mockfs.
