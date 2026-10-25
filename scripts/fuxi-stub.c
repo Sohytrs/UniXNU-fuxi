@@ -390,3 +390,11 @@ FUXI_WEAK unsigned long native_virtio_read_failures;
 FUXI_WEAK unsigned long native_virtio_read_requests;
 FUXI_WEAK unsigned long native_virtio_ready;
 FUXI_WEAK unsigned long native_virtio_verified_blocks;
+
+/* Storage counters the progress page reads; the UFS driver is parked. */
+FUXI_WEAK unsigned long native_ufs_block_failures;
+FUXI_WEAK unsigned long native_ufs_block_reads;
+FUXI_WEAK unsigned long native_ufs_blocks_published;
+FUXI_WEAK unsigned long native_ufs_integrity_failures;
+FUXI_WEAK unsigned long native_ufs_progress_text;
+FUXI_WEAK unsigned long native_ufs_verified_blocks;
