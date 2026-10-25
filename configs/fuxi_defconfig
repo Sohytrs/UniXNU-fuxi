@@ -29,7 +29,7 @@ CONFIG_XNU_NATIVE_AES=n
 CONFIG_XNU_NATIVE_RAM_BLOCK=n
 CONFIG_XNU_CRYPTO_BOOTSTRAP="source"
 CONFIG_XNU_OWNER_DATA_VOLUME_UUID="18AB5557-DC2D-469B-8758-855E60F5B0DF"
-CONFIG_XNU_EXTRA_LD_ARCHIVES="{tree}/build/fuxi-io-storage/libFuxiIOStorage.a {tree}/build/fuxi-stub/libFuxiBringUpStub.a"
+CONFIG_XNU_EXTRA_LD_ARCHIVES="{tree}/build/fuxi-stub/libFuxiBringUpStub.a"
 # Bring-up: no virtio, no owner-trust chain, no boot progress. The archives that produce
 # them are not in board.toml, because they need the storage ABI audit evidence.
 CONFIG_XNU_NATIVE_VIRTIO_BLOCK=n
