@@ -213,7 +213,6 @@ kernel_args = [
 # the tree is sheng's board table, which we removed with the other sheng drivers.
 # Without a root device XNU still boots far enough to print its console banner.
 
-entry_probe_reset_delay = 6
 
 [payload.adt]
 tool = "scripts/make-sheng-adt.py"
